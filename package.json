@@ -1,0 +1,39 @@
+{
+  "name": "nextjs-9-gae-demo",
+  "version": "1.0.0",
+  "description": "Sample Next.js v9 application running on Google App Engine's Standard Environment.",
+  "author": {
+    "name": "Brad Risse",
+    "email": "bradrisse@gmail.com"
+  },
+  "license": "ISC",
+  "keywords": [
+    "node",
+    "nodejs",
+    "next",
+    "nextjs",
+    "google",
+    "app",
+    "engine",
+    "gae",
+    "cloud",
+    "isomorphic",
+    "ssr",
+    "universal",
+    "app"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "gcp-predeploy": "find ./build -name '\\[...*' -exec bash -c 'mv \"$1\" \"${1/.../@@@}\"' -- {} \\;",
+    "gcp-build": "find ./build -name '\\[@@@*' -exec bash -c 'mv \"$1\" \"${1/@@@/...}\"' -- {} \\;",
+    "build": "rm -rf ./build && NODE_ENV=production next build",
+    "start": "next start -p 8080",
+    "deploy": "npm run build && npm rub gcp-predeploy && gcloud app deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "next": "9.4.4",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+}
