@@ -117,7 +117,7 @@ Basically GAE doesn't like when files names have `...` in them. To fix this your
 "gcp-build": "find ./build -name '\\[@@@*' -exec bash -c 'mv \"$1\" \"${1/@@@/...}\"' -- {} \\;",
 "build": "rm -rf ./build && NODE_ENV=production next build",
 "start": "next start -p 8080",
-"deploy": "npm run build && npm rub gcp-predeploy && gcloud app deploy"
+"deploy": "npm run build && npm run gcp-predeploy && gcloud app deploy"
 ```
 
 So now the deploy script runs build which removes the existing build folder, builds a new one, then replaces the dynamic all route file names from [...slug].js to [@@@slug].js, deploys the app, and once the app is uploaded GAE runs gcp-build and renames them back to [...slug].js
