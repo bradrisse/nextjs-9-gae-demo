@@ -6,6 +6,20 @@ Demonstration of [Next.js](https://nextjs.org) 9.x on [Google App Engine's Stand
 
 1. Install the [Google Cloud Platform SDK](https://cloud.google.com/sdk/).
 2. Clone this repo.
+3. Install Node.js (use homebrew, apt, whatever you choose).
+4. Either run commands locally to build and deploy the app, or create a Cloud Build trigger to use the cloudbuild.yaml file.
+
+### Install dependencies
+
+```sh
+npm install
+```
+
+Use if dependencies were not already specified in package.json.
+
+```sh
+npm install next react react-dom
+```
 
 ### Test the App
 
@@ -35,14 +49,19 @@ gcloud app create
 
 Wait a few minutes while Google provisions resources. While you are waiting, enable the Cloud Build API for your project by visiting the Cloud Build API page for your project (ex: https://console.developers.google.com/apis/api/cloudbuild.googleapis.com/overview?project=PROJECT-NAME).
 
-### Building and Deploying the Application
-
-Easy!
+### Building and Deploying the Application (using local gcloud CLI)
 
 ```sh
 npm run build
 npm run deploy
 ```
+
+### Building and Deploying the Application (using Cloud Build)
+
+I need to add gcloud commands for this, but for now:
+  1. Fork this repository into your own Github repo (or some other repo used by GCP), so you can authorize Cloud Build to use it.
+  2. Create a Cloud Build trigger to point to this repo, and use the cloudbuild.yaml file.
+  3. Just use a manual trigger for now and kick it off when ready.
 
 Visit the link provided by GCP to test.
 
