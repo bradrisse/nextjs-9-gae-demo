@@ -1,6 +1,3 @@
 steps:
-  - name: ubuntu
-    args:
-      - echo
-      - hello world
-      
+  - name: "npm-install"
+    args: ["npm", "install next react react-dom"]
