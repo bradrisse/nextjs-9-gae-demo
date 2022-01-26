@@ -1,5 +1,12 @@
 steps:
-  - name: ubuntu
-    entrypoint: bash
+  - name: gcr.io/cloud-builders/npm
     args:
-      - npm install next react react-dom
+      - install
+  # - name: gcr.io/cloud-builders/npm
+  #   args:
+  #     - run
+  #     - build
+  - name: gcr.io/cloud-builders/npm
+    args:
+      - run
+      - deploy
